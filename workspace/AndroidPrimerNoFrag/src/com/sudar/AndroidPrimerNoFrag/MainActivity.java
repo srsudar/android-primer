@@ -1,22 +1,41 @@
 package com.sudar.AndroidPrimerNoFrag;
 
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
-import android.support.v4.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.os.Build;
+import android.widget.Button;
+import android.widget.EditText;
 
 public class MainActivity extends ActionBarActivity {
+  
+  private static final String DEFAULT_NAME = "Lazy Bones";
+  
+  private Button mButton;
+  private EditText mNameEntry;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
+    mButton = (Button) findViewById(R.id.button_launch_name);
+    mNameEntry = (EditText) findViewById(R.id.activity_text_view);
+    mButton.setOnClickListener(new View.OnClickListener() {
+      
+      @Override
+      public void onClick(View v) {
+        String name = mNameEntry.getText().toString();
+        if (name == null) {
+          name = DEFAULT_NAME;
+        }
+        // We just want to launch the other activity.
+        Intent intent = new Intent(MainActivity.this, DisplayNameActivity.class);
+        intent.putExtra(DisplayNameActivity.INTENT_KEY_NAME, name);
+        startActivity(intent);
+      }
+    });
 
   }
 

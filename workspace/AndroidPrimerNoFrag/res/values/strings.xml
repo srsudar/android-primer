@@ -4,5 +4,8 @@
     <string name="app_name">AndroidPrimerNoFrag</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_display_name">DisplayNameActivity</string>
+    <string name="enter_a_name">Enter a name</string>
+    <string name="say_hello">Say Hello</string>
 
 </resources>
