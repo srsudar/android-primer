@@ -23,6 +23,7 @@ public class MainActivity extends ActionBarActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+    Log.e(TAG, "in onCreate");
 //    Log.e(TAG, "This is an error-level test");
     setContentView(R.layout.activity_main);
     mButton = (Button) findViewById(R.id.button_launch_name);
@@ -61,6 +62,36 @@ public class MainActivity extends ActionBarActivity {
     linearLayout.addView(editText);
     
   }
+  
+  @Override
+  protected void onStart() {
+    super.onStart();
+    Log.e(TAG, "in onStart");
+  }
+  
+  @Override
+  protected void onResume() {
+    super.onResume();
+    Log.e(TAG, "in onResume");
+  }
+  
+  @Override
+  protected void onPause() {
+    super.onPause();
+    Log.e(TAG, "onPause");
+  };
+  
+  @Override
+  protected void onStop() {
+    super.onStop();
+    Log.e(TAG, "onStop");
+  }
+  
+  @Override
+  protected void onDestroy() {
+    super.onDestroy();
+    Log.e(TAG, "onDestroy");
+  }
 
   @Override
   public boolean onCreateOptionsMenu(Menu menu) {
@@ -77,6 +108,7 @@ public class MainActivity extends ActionBarActivity {
     // as you specify a parent activity in AndroidManifest.xml.
     int id = item.getItemId();
     if (id == R.id.action_settings) {
+      Log.e(TAG, "you selected settings!");
       return true;
     }
     return super.onOptionsItemSelected(item);
