@@ -27,7 +27,7 @@ public class MainActivity extends ActionBarActivity {
       @Override
       public void onClick(View v) {
         String name = mNameEntry.getText().toString();
-        if (name == null) {
+        if (name.equals("")) {
           name = DEFAULT_NAME;
         }
         // We just want to launch the other activity.
