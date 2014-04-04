@@ -3,13 +3,17 @@ package com.sudar.AndroidPrimerNoFrag;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 
 public class MainActivity extends ActionBarActivity {
+  
+  private static final String TAG = MainActivity.class.getSimpleName();
   
   private static final String DEFAULT_NAME = "Lazy Bones";
   
@@ -19,6 +23,7 @@ public class MainActivity extends ActionBarActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+//    Log.e(TAG, "This is an error-level test");
     setContentView(R.layout.activity_main);
     mButton = (Button) findViewById(R.id.button_launch_name);
     mNameEntry = (EditText) findViewById(R.id.activity_text_view);
@@ -36,7 +41,25 @@ public class MainActivity extends ActionBarActivity {
         startActivity(intent);
       }
     });
+    
+    // Uncomment this to show programmatic view creation.
+//    addEditTextProgrammatically();
 
+  }
+  
+  /**
+   * Add a poorly formatted EditText to show what happens on rotation, and
+   * that you lose content.
+   */
+  public void addEditTextProgrammatically() {
+    LinearLayout linearLayout = 
+        (LinearLayout) this.findViewById(R.id.activity_main_linear_layout);
+    EditText editText = new EditText(this);
+    // TERRIBLE to add an id like this, doing it only for the purposes of
+    // making a point.
+//    editText.setId(100000);
+    linearLayout.addView(editText);
+    
   }
 
   @Override

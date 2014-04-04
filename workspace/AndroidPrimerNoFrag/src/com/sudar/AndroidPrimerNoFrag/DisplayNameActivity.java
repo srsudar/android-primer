@@ -25,6 +25,7 @@ public class DisplayNameActivity extends ActionBarActivity {
     } else {
       message = "Hello, " + retrievedName + "!";
     }
+//    this.mNameView.setTextSize(30);
     this.mNameView.setText(message);
 
   }
